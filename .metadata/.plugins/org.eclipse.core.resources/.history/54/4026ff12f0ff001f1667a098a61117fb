@@ -1,0 +1,55 @@
+package runnerPackage;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class main {
+	
+	//Menu
+	public static int mostrarMenu(boolean error) {
+		Scanner sc=new Scanner(System.in);
+		
+		if (error) System.out.println("Introduce unicamente un valor [0,1,2,3]");
+		
+		System.out.println("--------MENU--------");
+		System.out.println("[0] FINALIZAR");
+		System.out.println("[1] NUEVO DATO");
+		System.out.println("[2] MOSTRAR DATOS");
+		System.out.println("[3] BORRAR ÚLTIMO DATO");
+		System.out.println("---------------------");
+		System.out.print("Tu opción -> ");
+		try {
+			int respuesta = sc.nextInt();
+			
+			if (respuesta < 0 || respuesta > 3) {
+                return mostrarMenu(true); //Much better that respuesta=MostarMenu(true) because we are not calling a new fuction again
+			}
+			
+			 return respuesta;
+		}
+		catch (InputMismatchException e) {
+            System.out.println("Error: Debes introducir un número entero.");
+            sc.nextLine(); // Limpiar el buffer del scanner
+            return mostrarMenu(true);
+        }
+		
+		while(respuesta<0 || respuesta>3) respuesta=mostrarMenu(true);
+
+		return respuesta;
+	}
+
+	public static void main(String[] args) {
+		float tiempos[]= new float[10];
+		float distancias[]= new float[10];
+		String etiquetas[]= new String[10];
+		
+		
+		
+		for(float t : tiempos) {
+			System.out.println(t);
+		}
+		//Init variables
+		int respuesta=mostrarMenu(false);
+		 
+	}
+
+}

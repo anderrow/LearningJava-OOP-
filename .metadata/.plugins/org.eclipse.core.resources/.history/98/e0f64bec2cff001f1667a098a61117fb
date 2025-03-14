@@ -1,0 +1,13 @@
+
+public class Main {
+	public static void precioTotal() {
+		System.out.println("Fuction for calculate the total price of a product");
+	}
+	
+	
+	public static void main(String[] args) {
+		precioTotal();
+
+	}
+
+}

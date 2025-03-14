@@ -1,0 +1,14 @@
+package arraysPackage;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		//Array definitions
+		String nombres[]= {"Paco", "Lucía", "Marcos", "Sandra", "Nate", ""};
+		
+		for(int i=0;i<nombres.length;i++) {
+			System.out.println(nombres[i]);
+		}
+	}
+
+}

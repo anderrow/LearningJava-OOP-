@@ -1,0 +1,45 @@
+package pigGame;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+
+public class pigMain {
+	
+	//-----MAIN MENU-----
+	public static int menu(Scanner sc, boolean error) {
+			
+		if (error) System.out.println("Introduce a number between 0 to 4");
+		
+		System.out.println("--------MENU--------");
+		System.out.println("[0] END");
+		System.out.println("[1] Start playing");
+		System.out.println("[2] Check Data");
+		System.out.println("[3] Set the difficulty level of the AI");
+		System.out.println("---------------------");
+		System.out.print("Your option-> ");
+		
+		try {
+			int answer = sc.nextInt();
+			
+			if (answer <0 || answer >3) {
+				return menu(sc, true); //Close the function and restart it due to an error.
+			}
+			return answer;
+		}
+		catch(InputMismatchException e) { 
+			System.out.println("Exception: You must introduce an integrer number");
+			sc.nextLine(); // Clean the scanner buffer
+			return menu(sc, true); //Close the function and restart it due to an error.
+		}
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); //Open scanner
+		
+		System.out.println("Welcome to the PIG game!");
+		int mainoption = menu(sc, false);
+		System.out.println("Option choosed: " + mainoption);
+
+	}
+
+}

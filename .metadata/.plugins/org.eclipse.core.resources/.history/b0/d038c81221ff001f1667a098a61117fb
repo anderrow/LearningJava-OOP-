@@ -1,0 +1,4 @@
+
+public class IlluminatedSign {
+	int widht =5;
+}

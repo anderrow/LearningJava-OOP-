@@ -1,0 +1,110 @@
+package pigGame;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+import java.util.Random;
+
+
+public class pigMain {
+
+	
+	
+	//-----MAIN MENU-----
+	public static int menu(Scanner sc, boolean error) {
+			
+		if (error) System.out.println("Introduce a number between 0 to 4");
+		
+		System.out.println("--------MENU--------");
+		System.out.println("[0] END");
+		System.out.println("[1] Start playing");
+		System.out.println("[2] Check Data");
+		System.out.println("[3] Set the difficulty level of the AI");
+		System.out.println("---------------------");
+		System.out.print("Your option-> ");
+		
+		try {
+			int answer = sc.nextInt();
+			
+			if (answer <0 || answer >3) {
+				return menu(sc, true); //Close the function and restart it due to an error.
+			}
+			return answer;
+		}
+		catch(InputMismatchException e) { 
+			System.out.println("Exception: You must introduce an integrer number");
+			sc.nextLine(); // Clean the scanner buffer
+			return menu(sc, true); //Close the function and restart it due to an error.
+		}
+	}
+	
+	
+	//-----Generate a random number from 1 to 6
+	public static int random() {
+		Random random = new Random();
+		return (random.nextInt(6) + 1); // Generates a int between 1 and 6 and return
+	}
+	
+	
+	//--------THE GAME--------
+	public static void() {
+		
+	}
+	
+	
+	//-------MAIN RUTINE------
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in); //Open scanner
+		
+		int lastReg = 0;
+		int[] userTurn =  new int[10]; //Array for saving the results of the user
+		int[] aiTurn = new int[10]; //Array for saving the results of the AI
+		int ailevel = 1;
+		
+		System.out.println("Welcome to the PIG game!");
+		
+		//Open the menu and keep ‘mainoption’ selected
+		int mainoption = menu(sc, false);
+		System.out.println("Option choosed: " + mainoption);
+		
+		while(mainoption!=0) {
+			switch(mainoption) {
+			case 1:
+
+				break;
+			case 2:
+				System.out.println("USER----------AI");
+				for(int i=0;i<lastReg;i++) {
+					System.out.println(userTurn[i] + " | " + aiTurn[i]);
+				}
+				break;
+			case 3:
+				System.out.print("Set the AI level [1], [2] , [3] ");
+				
+				
+				try {
+					int aux = sc.nextInt();
+					
+					if (aux <0 || aux >3) {
+						System.out.println("This is not a valid answer. Ai level not changed.");
+					}
+					else {
+						
+						System.out.println("Ai level has been set to " + aux);
+						ailevel=aux;
+					}
+				}
+				catch(InputMismatchException e) { 
+					System.out.println("Exception: You must introduce an integrer number, Ai level not changed.");
+					sc.nextLine(); // Clean the scanner buffer
+				}
+				break;
+				
+			}
+			mainoption=menu(sc, false);
+			}
+		
+        System.out.println("Game ended. Goodbye!");
+        sc.close(); // Close the Scanner
+		}
+
+		
+	}
