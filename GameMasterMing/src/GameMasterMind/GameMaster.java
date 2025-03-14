@@ -1,3 +1,4 @@
+package GameMasterMind;
 
 public class GameMaster {
 
