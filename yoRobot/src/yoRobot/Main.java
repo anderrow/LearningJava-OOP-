@@ -3,8 +3,9 @@ package yoRobot;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		Robot r=new Robot();
+		Robot patata=new Robot();
 	}
 
 }
