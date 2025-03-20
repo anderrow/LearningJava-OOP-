@@ -3,16 +3,21 @@ package MasterGame;
 public class Position {
 
 	private int posX;
-	private int poxY;
+	private int posY;
 	
 	public Position() {
 		this.posX=0;
-		this.poxY=0;
+		this.posY=0;
 	}
 	
 	public Position(int posx, int posy) {
 		this.posX=posx;
-		this.poxY=posy;
+		this.posY=posy;
+	}
+	
+	public boolean isItEqueal(Position p) {
+		if(p.posX==this.posX && p.posY==this.posY) return true;
+		else return false;
 	}
 
 	public int getPosX() {
@@ -24,11 +29,11 @@ public class Position {
 	}
 
 	public int getPoxY() {
-		return poxY;
+		return posY;
 	}
 
-	public void setPoxY(int poxY) {
-		this.poxY = poxY;
+	public void setPoxY(int posY) {
+		this.posY = posY;
 	}
 
 }
