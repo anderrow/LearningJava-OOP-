@@ -2,7 +2,7 @@ package MasterGame;
 
 public class Character {
 	private String name;
-	Position pos;
+	private Position pos;
 
 	
 	public Character() {

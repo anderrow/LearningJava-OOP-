@@ -8,9 +8,11 @@ public class Game {
 		posInicial.setPoxY(0);
 		
 		
+		
 		//Generate the first two objects
 		Room room1 = new Room();
 		Character player = new Character();
+		
 		
 		player.setPos(posInicial);
 	}

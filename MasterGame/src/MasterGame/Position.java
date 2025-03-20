@@ -6,7 +6,13 @@ public class Position {
 	private int poxY;
 	
 	public Position() {
-
+		this.posX=0;
+		this.poxY=0;
+	}
+	
+	public Position(int posx, int posy) {
+		this.posX=posx;
+		this.poxY=posy;
 	}
 
 	public int getPosX() {
