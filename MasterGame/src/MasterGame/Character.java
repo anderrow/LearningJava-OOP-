@@ -18,13 +18,20 @@ public class Character {
 	}
 
 	public Position getPos() {
-		return pos;
+		return this.pos;
 	}
 
 	public void setPos(Position pos) {
 		this.pos = pos;
 	}
-
+	
+	public void movX(int X) {
+		this.pos.setPosX(this.pos.getPosX()+X);
+	}
+	
+	public void movY(int Y) {
+		this.pos.setPosY(this.pos.getPosY()+Y);
+	}
 	
 
 }

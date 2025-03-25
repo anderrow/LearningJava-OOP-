@@ -28,11 +28,11 @@ public class Position {
 		this.posX = posX;
 	}
 
-	public int getPoxY() {
+	public int getPosY() {
 		return posY;
 	}
 
-	public void setPoxY(int posY) {
+	public void setPosY(int posY) {
 		this.posY = posY;
 	}
 

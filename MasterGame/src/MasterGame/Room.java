@@ -20,6 +20,12 @@ public class Room {
 		else return false;
 	}
 	
+	public boolean isItPlayer(Position pos){
+		if(pos.isItEqueal(j.getPos())) return true;
+		else return false;
+	}
+	
+	
 	public Position getEntryDoor() {
 		return entryDoor;
 	}
@@ -32,7 +38,7 @@ public class Room {
 	public void setExitDoor(Position exitDoor) {
 		this.exitDoor = exitDoor;
 	}
-	public void setCharacter(Character j) {
+	public void setCharacter(Player j) {
 		this.j = j;
 	}
 }
