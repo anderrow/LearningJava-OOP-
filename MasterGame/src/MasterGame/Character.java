@@ -1,36 +1,22 @@
 package MasterGame;
 
-public class Character {
-	private String name;
-	private Position pos;
-
+public class Character extends GameObject {
 	
 	public Character() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Position getPos() {
-		return this.pos;
-	}
-
-	public void setPos(Position pos) {
-		this.pos = pos;
-	}
 	
 	public void movX(int X) {
-		this.pos.setPosX(this.pos.getPosX()+X);
+		Position pos = super.getPos(); //Pos is refered to the super pos
+		pos.setPosX(pos.getPosX()+X); 
+		//super.setPos(pos);  //It's not needed cuz pos is already refered to super pos, it's not and independent variable, is like a pointer
 	}
 	
 	public void movY(int Y) {
-		this.pos.setPosY(this.pos.getPosY()+Y);
+		Position pos = super.getPos();
+		pos.setPosY(pos.getPosY()+Y);
+		//super.setPos(pos);
 	}
 	
 

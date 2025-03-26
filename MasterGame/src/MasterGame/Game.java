@@ -47,7 +47,6 @@ public class Game {
 					break; //Garbage erase temp variables
 			}
 			
-			 
 		}
 		
 	}
