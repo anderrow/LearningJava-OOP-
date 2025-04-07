@@ -28,11 +28,18 @@ public class Game {
 		player.setPos(doorEntryPos);
 		player.setLetterMap('P');
 		
+		//Generate an enemy
+		Hadron hadron =new Hadron();
+		Position pH = new Position(3,5);
+		hadron.setPos(pH);
+		hadron.setLetterMap('H');
+		
 		//Generate a Room
 		Room mainRoom = new Room();
 		mainRoom.setObjetP(player);
 		mainRoom.setObjetP(doorEntry);
 		mainRoom.setObjetP(doorExit);
+		mainRoom.setObjetP(hadron);
 		
 		
 		//**//

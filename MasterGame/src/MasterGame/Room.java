@@ -19,11 +19,28 @@ public class Room {
 	public Room() {
 		
 	}
+	
+	public Room(Position doorEntryPos, Position doorExitPos, Character j) {
+		this.entryDoor=doorEntryPos;
+		this.exitDoor= doorExitPos;
+		this.j=j;
+		this.j.setPos(this.entryDoor);
+	}
+	
 	public boolean isItADoor(Position pos){
 		if(pos.isItEqueal(entryDoor) || pos.isItEqueal(exitDoor)) return true;
 		else return false;
 	}
 	
+	public int isAnObject(Position p) {	
+		for (int i=0;i<numObjects;i++) {
+			GameObject obj = objetcsPlayer[i];
+			Position objPosition= obj.getPos();
+			
+			if(p.isItEqueal(objPosition)) return i;
+		}
+		return -1;
+	}
 	public boolean isItPlayer(Position pos){
 		if(pos.isItEqueal(j.getPos())) return true;
 		else return false;
@@ -32,6 +49,9 @@ public class Room {
 	public void setObjetP(GameObject obj) {
 		this.objetcsPlayer[this.numObjects]=obj;
 		this.numObjects++;
+	}
+	public GameObject getObjetP(int objPos) {
+		return this.objetcsPlayer[objPos];
 	}
 	
 	public Position getEntryDoor() {

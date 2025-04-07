@@ -13,11 +13,13 @@ public class Ingame {
 		for(int row=-1;row<Room.height;row++) {
 			for(int col=0;col<=Room.width;col++) {
 				Position actualPosition=new Position(col, row);
-				
-				if(h.isItPlayer(actualPosition)) System.out.print("J");
+				int posObj = h.isAnObject(actualPosition);
+				if(posObj !=-1) {
+					GameObject objP = h.getObjetP(posObj);
+					System.out.print(objP.getLetterMap());
+				}
 				else if(row==-1 && col!= Room.width) System.out.print(col);
 				else if(col==Room.width && row!=-1) System.out.print(row);
-				else if(h.isItADoor(actualPosition)) System.out.print(" ");
 				else if (col==0 || col==(Room.height - 1)) System.out.print("|"); //Right and Left Walls
 				else if (row==0 || row ==(Room.width -1)) System.out.print("="); //Upper and Lower Walls
 				else System.out.print(" "); // Map itself
