@@ -9,11 +9,15 @@ public class Room {
 	private Position entryDoor;
 	private Position exitDoor;
 	
+	//Collection of objects inside the game 
+	private GameObject[] objetcsPlayer	= new GameObject[20];
+	private int numObjects=0; //Num of objects in the room
+	
 	//Copy of the Character
 	private Character j;
 	
 	public Room() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public boolean isItADoor(Position pos){
 		if(pos.isItEqueal(entryDoor) || pos.isItEqueal(exitDoor)) return true;
@@ -25,6 +29,10 @@ public class Room {
 		else return false;
 	}
 	
+	public void setObjetP(GameObject obj) {
+		this.objetcsPlayer[this.numObjects]=obj;
+		this.numObjects++;
+	}
 	
 	public Position getEntryDoor() {
 		return entryDoor;
@@ -41,4 +49,6 @@ public class Room {
 	public void setCharacter(Player j) {
 		this.j = j;
 	}
+	
+
 }

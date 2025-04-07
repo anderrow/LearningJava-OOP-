@@ -6,32 +6,52 @@ import java.util.Scanner;
 public class Game {
 
 	public static void main(String[] args) {
-		int gameAction= -1;
+		int gameAction= -1; //Init gameAction variable
 		
-		Scanner in = new Scanner(System.in);
-		
-		//Generate a Room
-		Room mainRoom = new Room();
+		Scanner in = new Scanner(System.in); //Init the scanner
 		
 		//Set the position of the Entrance and Exit door
-		Position doorEntry = new Position(0,3);
-		mainRoom.setEntryDoor(doorEntry);
-		Position doorExit = new Position(5, Room.height - 1);
-		mainRoom.setExitDoor(doorExit);
+		Position doorEntryPos = new Position(0,3);		
+		Position doorExitPos = new Position(5, Room.height - 1);
+		
+		GameObject doorEntry = new GameObject(); //Init
+		GameObject doorExit = new GameObject(); //Init
+		
+		doorEntry.setPos(doorEntryPos); //Set Door Position
+		doorExit.setPos(doorExitPos);
+		doorEntry.setLetterMap(' '); //Set the letter that represents a door
+		doorExit.setLetterMap(' ');
+		
 		
 		//Generate the character and keep it in the room
 		Player player = new Player();	
-		Position playerStarts = new Position(0,3);
-		player.setPos(playerStarts);
-		mainRoom.setCharacter(player);
+		player.setPos(doorEntryPos);
+		player.setLetterMap('P');
+		
+		//Generate a Room
+		Room mainRoom = new Room();
+		mainRoom.setObjetP(player);
+		mainRoom.setObjetP(doorEntry);
+		mainRoom.setObjetP(doorExit);
+		
+		
+		//**//
+		//
+		//---------OLD CODE: Now we use Object for everything insteand of Character, entry door, exit door...
+		//--------- this makes the code much more flexible.
+		//mainRoom.setCharacter(player);
+		//mainRoom.setEntryDoor(doorEntryPos);
+		//mainRoom.setExitDoor(doorExitPos);
+		//
+		//
+		//**//
 		
 		while(gameAction != Ingame.EXIT_GAME) {
 			//Draw the room and the menu
 			Ingame.drawRoom(mainRoom);
 			Ingame.drawMenu();	
-			
-			//Ask to the user what it wanna do
-			gameAction= in.nextInt();
+						
+			gameAction= in.nextInt();//Ask to the user what it wants to do
 			
 			switch(gameAction) {
 				case Ingame.THROW_DADE :
